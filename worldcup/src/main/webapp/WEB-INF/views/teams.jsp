@@ -8,13 +8,15 @@
 		<meta charset="ISO-8859-1">
 		<title>World Cup 2018/2022</title>
 		
-		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-	
+		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">	
 	</head>
 	<body>
 		<%@include file="menu.jsp"%>
 		<form:form action="search" method="POST">	
-			<div class="container">				
+			<div class="container">		
+				<h2 class="text-secondary">Team
+					<button type="button" class="btn btn-outline-dark" onclick="location.href='/worldcup/team/new'" title="Add Team">+</button>
+				</h2>				
 				<c:forEach var="tempTeam" items="${teams}">					
 					<div class="row">
 						<div class="col-sm-12">

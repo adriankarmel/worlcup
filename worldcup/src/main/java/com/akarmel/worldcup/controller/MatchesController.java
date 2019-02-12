@@ -16,8 +16,9 @@ import com.akarmel.worldcup.service.MatchesService;
 import com.akarmel.worldcup.service.TeamService;
 
 @Controller
-@RequestMapping("/matches")
+@RequestMapping("/match")
 public class MatchesController {
+	
 	@Autowired
 	private MatchesService matchesService;
 	
@@ -39,20 +40,23 @@ public class MatchesController {
 	}
 	
 	@GetMapping("/new")
-	public String getNewMatch(Model theModel) {	
-		
+	public String getNewMatch(Model theModel) {			
+	
 		List<Team> theTeam = teamService.getTeams();
-		theModel.addAttribute("team_a", theTeam);	
-			
+		theModel.addAttribute("team_a", theTeam);		
+		theModel.addAttribute("team_b", theTeam);		
+
+		
 		theModel.addAttribute("match", new Matches());
 		
 		return "match";
 	}
 	
-	@PostMapping("/saveMatch")
+	@PostMapping("/saveMatch")	
 	public String saveMatch(@ModelAttribute("match") Matches theMatch) {
 		
 		matchesService.saveMatches(theMatch);
-		return "redirect:/matches/list";
+		
+		return "redirect:/match/list";
 	}	
 }

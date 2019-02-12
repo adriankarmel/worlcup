@@ -30,7 +30,7 @@
 		        <a class="nav-link" href="/worldcup/team/list">Teams <span class="sr-only">(current)</span></a>
 		      </li>   
 		      <li class="nav-item">
-		        <a class="nav-link" href="/worldcup/matches/list">Matches</a>
+		        <a class="nav-link" href="/worldcup/match/list">Matches</a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">About</a>

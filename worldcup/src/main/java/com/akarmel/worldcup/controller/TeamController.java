@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.akarmel.worldcup.entity.Group;
+import com.akarmel.worldcup.entity.Matches;
 import com.akarmel.worldcup.entity.Team;
 import com.akarmel.worldcup.service.GroupService;
 import com.akarmel.worldcup.service.TeamService;
@@ -48,10 +49,19 @@ public class TeamController {
 		return "team";										
 	}	
 	
+	@GetMapping("/new")
+	public String getNewTeam(Model theModel) {			
+	
+		theModel.addAttribute("match", new Team());
+		
+		return "team";
+	}	
+	
 	@PostMapping("/saveTeam")
 	public String saveTeam(@ModelAttribute("team") Team theTeam) {
 		
 		teamService.saveTeam(theTeam);
+		
 		return "redirect:/team/list";
 	}	
 }

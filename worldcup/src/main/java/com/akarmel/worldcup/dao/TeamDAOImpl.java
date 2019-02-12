@@ -13,7 +13,6 @@ import com.akarmel.worldcup.entity.Team;
 @Repository
 public class TeamDAOImpl implements TeamDAO {
 
-	// need to inject the session factory	
 	@Autowired
 	private SessionFactory sessionFactory;
 

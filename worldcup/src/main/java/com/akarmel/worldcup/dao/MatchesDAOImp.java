@@ -19,10 +19,9 @@ public class MatchesDAOImp implements MatchesDAO {
 	
 	@Override
 	public void saveMatches(Matches theMatch) {
-		// get current hibernate session
-		Session currentSession = sessionFactory.getCurrentSession();
+	
+		Session currentSession = sessionFactory.getCurrentSession();		
 		
-		// save/update the customer		
 		currentSession.saveOrUpdate(theMatch);	
 	}
 

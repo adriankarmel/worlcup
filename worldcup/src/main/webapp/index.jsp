@@ -2,9 +2,9 @@
 <body>
 <% 
 
-response.sendRedirect("team/list");
+//response.sendRedirect("team/list");
 
-//response.sendRedirect("matches/list"); 
+response.sendRedirect("match/list"); 
 %>
 </body>
 </html>

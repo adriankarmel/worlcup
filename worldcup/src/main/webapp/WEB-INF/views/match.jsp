@@ -14,7 +14,7 @@
 
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 			
+		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"> 			
 
 <title>World Cup 2018/2022</title>
 <script type="text/javascript">
@@ -53,7 +53,7 @@
 			 	<div class="col-sm-6">
 					<div class="form-group">
 						<label for="datepicker" class="text-secondary">Time</label>
-						<form:input path="hora" cssClass="datepicker form-control" id="datepicker" placeholder="HH:mm:ss" />
+						<form:input path="hora" cssClass="datepicker form-control" id="datepicker" placeholder="HH:mm" />
 					</div>
 				</div> 
 			</div>	
@@ -102,7 +102,7 @@
 				</div>		
 			</div>	
 		 	<div align="center">				
-				<button type="submit" class="btn default">Save</button>
+				<button type="submit" class="btn default">Save</button>		
 				<button type="button" class="btn default" onclick="location.href='/worldcup/team/list'">Go Back</button>																	   				
 			</div>
 		</div>
