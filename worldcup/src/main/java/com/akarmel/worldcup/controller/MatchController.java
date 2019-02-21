@@ -9,45 +9,64 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.akarmel.worldcup.entity.Matches;
 import com.akarmel.worldcup.entity.Team;
-import com.akarmel.worldcup.service.MatchesService;
+import com.akarmel.worldcup.service.MatchService;
 import com.akarmel.worldcup.service.TeamService;
 
 @Controller
 @RequestMapping("/match")
-public class MatchesController {
+public class MatchController {
 	
 	@Autowired
-	private MatchesService matchesService;
+	private MatchService matchService;
 	
 	@Autowired
 	private TeamService teamService;
 	
 	@GetMapping("/list")
-	public String getMatches(Model theModel) {		
+	public String getMatch(Model theModel) {		
 		
-	/*	List<Team> theTeam = teamService.getTeams();
-		theModel.addAttribute("teamA", theTeam);		
-		theModel.addAttribute("teamB", theTeam);		
-	*/	
+		/*
+		 * List<Team> theTeam = teamService.getTeams();
+		 * theModel.addAttribute("theTeam_a", theTeam);
+		 * theModel.addAttribute("theTeam_b", theTeam);
+		 */
 		
-		List<Matches> theMatches = matchesService.getMatches();		
-		theModel.addAttribute("matches", theMatches);		
+		List<Matches> theMatch = matchService.getMatch();		
+		theModel.addAttribute("matches", theMatch);		
 		
 		return "matches";
 	}
+		
+	@GetMapping("/Update")
+	public String showFormForUpdate(@RequestParam("matchId") int theId,
+									Model theModel) {										
+
+		Matches theMatch = matchService.getMatch(theId);	
+		theModel.addAttribute("match", theMatch);
+
+		
+		List<Team> theTeam = teamService.getTeams();
+		theModel.addAttribute("theTeam_a", theTeam);		
+		theModel.addAttribute("theTeam_b", theTeam);		
+			
+		
+		return "match";										
+	}	
 	
 	@GetMapping("/new")
 	public String getNewMatch(Model theModel) {			
-	
+		System.out.println("new");
 		List<Team> theTeam = teamService.getTeams();
-		theModel.addAttribute("team_a", theTeam);		
-		theModel.addAttribute("team_b", theTeam);		
-
+		theModel.addAttribute("theTeam_a", theTeam);		
+		theModel.addAttribute("theTeam_b", theTeam);		
 		
 		theModel.addAttribute("match", new Matches());
+		
+		System.out.println("new aaa");
 		
 		return "match";
 	}
@@ -55,7 +74,7 @@ public class MatchesController {
 	@PostMapping("/saveMatch")	
 	public String saveMatch(@ModelAttribute("match") Matches theMatch) {
 		
-		matchesService.saveMatches(theMatch);
+		matchService.saveMatch(theMatch);
 		
 		return "redirect:/match/list";
 	}	

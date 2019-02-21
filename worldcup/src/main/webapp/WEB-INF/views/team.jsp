@@ -48,39 +48,47 @@
     text-align:center;
     color:white;
 }
+
 </style>
 </head>
-<body>
-	<form:form action="saveTeam" modelAttribute="team" method="POST">
+<body class="form-dark">
+	<form:form action="saveTeam" modelAttribute="team" method="POST" >
 		<form:hidden path="id" />
 		<%@include file="menu.jsp"%>
 
 		<div class="container">
-			<h2 class="text-secondary">
-				Team <img src="<c:url value="/resources/img/${team.flagPath}"/>"
-					Class="img-thumbnail" />
+			<h2 class="text-secondary yellow">			 
+			 	  Team<img src="<c:url value="/resources/img/${team.flagPath}"/>" class="img-thumbnail form-dark"/>
 			</h2>
 			<div class="form-group">
-				<label for="name" class="text-secondary">Name</label>
+				<label for="name" class="text-secondary yellow">Name</label>
 
 				<form:input path="name" cssClass="form-control"
 					autofocus="autofocus" />
 			</div>
 			
 			<div class="form-group">
-				<label class="text-secondary">Select Group</label>
+				<label class="text-secondary yellow">Select Group</label>
 				<form:select path="groupetes.id" cssClass="form-control">
-					<c:forEach var="tempgro" items="${grupos}">
-						<option selected="true" value="${tempgro.id}">
+					<c:forEach var="tempgro" items="${theGroup}">
+						<option value="${tempgro.id}">
 							${tempgro.name}							
 						</options>
 					</c:forEach>
 				</form:select>			
 			</div>
-			
-			<label class="text-secondary">Flag</label>
-
-			<form:input path="flagPath" cssClass="form-control" />	
+			<div class="form-group">
+				<label class="text-secondary yellow">Flag</label>
+				<form:input path="flagPath" cssClass="form-control" />	
+			</div>	
+			<div class="form-group">
+				<label class="text-secondary yellow">Year</label>				
+				<form:select path="anio" cssClass="form-control">
+					<option value="2018" ${team.anio == "2018" ? 'selected' : ''}>2018</options>
+					<option value="2022" ${team.anio == "2022" ? 'selected' : ''}>2022</options>					
+				</form:select>	
+				
+			</div>		
 			<hr>
 			<div align="center">
 				<button type="submit" class="btn default">Save</button>

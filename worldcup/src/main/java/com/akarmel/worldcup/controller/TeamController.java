@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.akarmel.worldcup.entity.Group;
-import com.akarmel.worldcup.entity.Matches;
 import com.akarmel.worldcup.entity.Team;
 import com.akarmel.worldcup.service.GroupService;
 import com.akarmel.worldcup.service.TeamService;
@@ -52,7 +51,10 @@ public class TeamController {
 	@GetMapping("/new")
 	public String getNewTeam(Model theModel) {			
 	
-		theModel.addAttribute("match", new Team());
+		List<Group> theGroup = groupService.getGroups();
+		theModel.addAttribute("theGroup", theGroup);		
+		
+		theModel.addAttribute("team", new Team());
 		
 		return "team";
 	}	

@@ -31,10 +31,7 @@
 		      </li>   
 		      <li class="nav-item">
 		        <a class="nav-link" href="/worldcup/match/list">Matches</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">About</a>
-		      </li>
+		      </li>		  
 		    </ul>		
 		  </div>
 		</nav>

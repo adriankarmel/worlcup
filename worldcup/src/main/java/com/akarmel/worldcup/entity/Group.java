@@ -23,9 +23,6 @@ public class Group {
 	@Column(name="name")
 	private String name;
 	
-	@Column(name="nombre")
-	private String nombre;
-	
 	@OneToMany(mappedBy="groupetes",			  
 			   cascade={CascadeType.PERSIST, 
 					   	CascadeType.MERGE,
@@ -38,7 +35,6 @@ public class Group {
 	
 	public Group(int id, String name, String nombre) {
 		this.name = name;
-		this.nombre = nombre;
 	}
 	
 	public int getId() {
@@ -57,14 +53,6 @@ public class Group {
 		this.name = name;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public List<Team> getTeam() {
 		return team;
 	}
@@ -75,6 +63,6 @@ public class Group {
 
 	@Override
 	public String toString() {
-		return "Group [id=" + id + ", name=" + name + ", nombre=" + nombre + "]";
+		return "Group [id=" + id + ", name=" + name +  "]";
 	}
 }

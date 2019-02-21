@@ -1,0 +1,21 @@
+.form-dark{
+	background-color:#212529 !important;
+}
+
+.a-nada{
+	text-decoration:none;
+	color:white;
+	font-weight: bold;
+}
+
+.yellow{	
+	color:#FFD700 !important;
+}
+
+.border-yellow{
+	border-color:#FFD700 !important;
+	color:#FFD700;
+}
+.line-yellow{
+	background-color:#FFD700 !important;
+}

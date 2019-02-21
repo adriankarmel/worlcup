@@ -9,24 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.akarmel.worldcup.entity.Matches;
-import com.akarmel.worldcup.entity.Team;
 
 @Repository
-public class MatchesDAOImp implements MatchesDAO {
+public class MatchDAOImp implements MatchDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public void saveMatches(Matches theMatch) {
-	
+	public void saveMatch(Matches theMatch) {
 		Session currentSession = sessionFactory.getCurrentSession();		
-		
 		currentSession.saveOrUpdate(theMatch);	
 	}
 
 	@Override
-	public List<Matches> getMatches() {
+	public List<Matches> getMatch() {
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
@@ -34,15 +31,19 @@ public class MatchesDAOImp implements MatchesDAO {
 		Query<Matches> theQuery = currentSession.createQuery("FROM Matches ORDER BY id", Matches.class);
 		
 		// execute query and get result list
-		List<Matches> matches = theQuery.getResultList();
+		List<Matches> match = theQuery.getResultList();
 				
 		// return the results				
-		return matches;
+		return match;
 	}
 
 	@Override
-	public Matches getMatches(int theId) {
-		return null;
+	public Matches getMatch(int theId) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+			
+		Matches theMatch = currentSession.get(Matches.class, theId);		
+		
+		return theMatch;			
 	}
-
 }

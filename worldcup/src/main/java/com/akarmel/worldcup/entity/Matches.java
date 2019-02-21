@@ -1,8 +1,5 @@
 package com.akarmel.worldcup.entity;
 
-import java.sql.Time;
-import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,12 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="matches")
@@ -26,29 +20,25 @@ public class Matches {
 	@Column(name="id")
 	private int id;
 	
-	@OneToOne(cascade={CascadeType.PERSIST, 
+	@ManyToOne(cascade={CascadeType.PERSIST, 
 			   CascadeType.MERGE,
 			   CascadeType.DETACH,
 			   CascadeType.REFRESH})
 	@JoinColumn(name="team_a_id")	
-	private Team teamA;
-	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name="dia")
-	private Date dia;
-	
-	//@Temporal(TemporalType.TIME)
-	@DateTimeFormat(pattern = "HH:mm")
-	@Column(name="hora")
-	private Time hora; 
-	
+	private Team team_a;
+
+    @Column(name="dia") 
+    private String dia;
+	  
+    @Column(name="hora") 
+    private String hora;
+	 
 	@OneToOne(cascade={CascadeType.PERSIST, 
 			   CascadeType.MERGE,
 			   CascadeType.DETACH,
 			   CascadeType.REFRESH})
 	@JoinColumn(name="team_b_id")	
-	private Team teamB;
+	private Team team_b;
 	
 	@Column(name="result_A")
 	private int result_A;
@@ -59,9 +49,13 @@ public class Matches {
 	public Matches() {		
 	}	
 
-	public Matches(Date dia, Time hora) {
+	public Matches(int id, Team team_a, String dia, String hora, Team team_b, int result_A, int result_B) {
+		this.team_a = team_a;
 		this.dia = dia;
 		this.hora = hora;
+		this.team_b = team_b;
+		this.result_A = result_A;
+		this.result_B = result_B;
 	}
 
 	public int getId() {
@@ -71,43 +65,41 @@ public class Matches {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public Date getDia() {
+	
+	public String getDia() {
 		return dia;
 	}
-	
-	public void setDia(Date dia) {
+
+	public void setDia(String dia) {
 		this.dia = dia;
 	}
 
-	public Time getHora() {
+	public String getHora() {
 		return hora;
 	}
 
-	public void setHora(Time hora) {
+	public void setHora(String hora) {
 		this.hora = hora;
 	}
 
-	
-	public Team getTeamA() {
-		return teamA;
-	}
-
-	public void setTeamA(Team teamA) {
-		this.teamA = teamA;
-	}
-
-	public Team getTeamB() {
-		return teamB;
-	}
-
-	public void setTeamB(Team teamB) {
-		this.teamB = teamB;
-	}
-
-		
 	public int getResult_A() {
 		return result_A;
+	}
+	
+	public Team getTeam_a() {
+		return team_a;
+	}
+
+	public void setTeam_a(Team team_a) {
+		this.team_a = team_a;
+	}
+
+	public Team getTeam_b() {
+		return team_b;
+	}
+
+	public void setTeam_b(Team team_b) {
+		this.team_b = team_b;
 	}
 
 	public void setResult_A(int result_A) {
@@ -122,9 +114,5 @@ public class Matches {
 		this.result_B = result_B;
 	}
 
-	@Override
-	public String toString() {
-		return "Matches [id=" + id + ", teamA=" + teamA + ", dia=" + dia + ", hora=" + hora + ", teamB=" + teamB
-				+ ", result_A=" + result_A + ", result_B=" + result_B + "]";
-	}		
+	
 }
