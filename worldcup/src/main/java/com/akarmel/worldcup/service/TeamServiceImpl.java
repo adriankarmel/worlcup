@@ -29,7 +29,7 @@ public class TeamServiceImpl implements TeamService {
 	
 	@Override
 	@Transactional
-	public List<Team> getTeams() {
-		return TeamDAO.getTeams();
+	public List<Team> getTeams(String theYear, int theTeamId) {
+		return TeamDAO.getTeams(theYear, theTeamId);
 	}	
 }

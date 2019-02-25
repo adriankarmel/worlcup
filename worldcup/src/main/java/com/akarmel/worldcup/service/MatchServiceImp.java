@@ -24,8 +24,8 @@ public class MatchServiceImp implements MatchService {
 
 	@Override
 	@Transactional
-	public List<Matches> getMatch() {
-		return MatchDAO.getMatch();
+	public List<Matches> getMatch(String theYear) {
+		return MatchDAO.getMatch(theYear);
 	}
 
 	@Override

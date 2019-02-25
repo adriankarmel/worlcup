@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -30,12 +31,12 @@ public class Team {
 	@Column(name="name")
 	private String name;
 	
-	@OneToOne(cascade={CascadeType.PERSIST, 
+	@ManyToOne(cascade={CascadeType.PERSIST, 
 			   CascadeType.MERGE,
 			   CascadeType.DETACH,
 			   CascadeType.REFRESH})
 	@JoinColumn(name="group_id")	
-	private Group groupetes;
+	private Group grupete;
 	
 	@OneToMany(mappedBy="team_a",			  
 			   cascade={CascadeType.PERSIST, 
@@ -61,10 +62,12 @@ public class Team {
 		this.flagPath = "noflag.png";
 	}	
 
-	public Team(int id, String name, Group groupetes, List<Matches> matchA, List<Matches> matchB, String flagPath,
+	public Team(int id, String name, Group grupete, List<Matches> matchA, List<Matches> matchB, String flagPath,
 			String anio) {
+		
+		this.id = id;
 		this.name = name;
-		this.groupetes = groupetes;
+		this.grupete = grupete;
 		this.matchA = matchA;
 		this.matchB = matchB;
 		this.flagPath = flagPath;
@@ -95,14 +98,14 @@ public class Team {
 		this.flagPath = flagPath;
 	}	
 
-	public Group getGroupetes() {
-		return groupetes;
+	public Group getGrupete() {
+		return grupete;
 	}
 
-	public void setGroupetes(Group groupetes) {
-		this.groupetes = groupetes;
+	public void setGrupete(Group grupete) {
+		this.grupete = grupete;
 	}
-	
+
 	public List<Matches> getMatchA() {
 		return matchA;
 	}
@@ -129,7 +132,7 @@ public class Team {
 
 	@Override
 	public String toString() {
-		return "Team [id=" + id + ", name=" + name + ", groupetes=" + groupetes + ", matchA=" + matchA + ", matchB="
+		return "Team [id=" + id + ", name=" + name + ", grupete=" + grupete + ", matchA=" + matchA + ", matchB="
 				+ matchB + ", flagPath=" + flagPath + "]";
 	}	
 }

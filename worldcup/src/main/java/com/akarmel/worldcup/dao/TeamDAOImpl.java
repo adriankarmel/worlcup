@@ -37,12 +37,16 @@ public class TeamDAOImpl implements TeamDAO {
 	}
 
 	@Override
-	public List<Team> getTeams() {
-		// get the current hibernate session
+	public List<Team> getTeams(String year, int teamId) {
+		String sSql = "";
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		// create a query
-		Query<Team> theQuery = currentSession.createQuery("FROM Team ORDER BY name", Team.class);
+		if (teamId == 0) {
+			sSql = "FROM Team WHERE year = " + year + " ORDER BY group_id ";
+		}else {
+			sSql = "FROM Team WHERE year = " + year + " AND (team_id_a = " + teamId + " OR team_id_b = " + teamId + " ORDER BY group_id ";			
+		}
+		Query<Team> theQuery = currentSession.createQuery(sSql, Team.class);
 		
 		// execute query and get result list
 		List<Team> teams = theQuery.getResultList();

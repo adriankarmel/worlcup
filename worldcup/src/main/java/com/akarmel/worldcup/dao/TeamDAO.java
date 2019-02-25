@@ -8,7 +8,7 @@ public interface TeamDAO {
 	
 	public void saveTeam(Team theTeam);
 	
-	public List<Team> getTeams();
+	public List<Team> getTeams(String theYear, int theTeamId);
 
 	public Team getTeam(int theId);
 }

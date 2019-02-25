@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ page import="com.akarmel.worldcup.util.Constant" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +69,7 @@
 			
 			<div class="form-group">
 				<label class="text-secondary yellow">Select Group</label>
-				<form:select path="groupetes.id" cssClass="form-control">
+				<form:select path="grupete.id" cssClass="form-control">
 					<c:forEach var="tempgro" items="${theGroup}">
 						<option value="${tempgro.id}">
 							${tempgro.name}							
@@ -93,7 +93,7 @@
 			<div align="center">
 				<button type="submit" class="btn default">Save</button>
 				<button type="button" class="btn default"
-					onclick="location.href='/worldcup/team/list'">Go Back</button>
+					onclick="location.href='/worldcup/team/list?year=<%= Constant.WORLD_CUP_YEAR_DEFAULT%>'">Go Back</button>
 			</div>
 		</div>
 	</form:form>

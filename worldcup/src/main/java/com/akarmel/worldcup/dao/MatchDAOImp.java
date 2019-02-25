@@ -23,12 +23,12 @@ public class MatchDAOImp implements MatchDAO {
 	}
 
 	@Override
-	public List<Matches> getMatch() {
+	public List<Matches> getMatch(String year) {
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// create a query
-		Query<Matches> theQuery = currentSession.createQuery("FROM Matches ORDER BY id", Matches.class);
+		Query<Matches> theQuery = currentSession.createQuery("FROM Matches WHERE SUBSTRING(dia, 1, 4) = " + year + " ORDER BY id", Matches.class);
 		
 		// execute query and get result list
 		List<Matches> match = theQuery.getResultList();

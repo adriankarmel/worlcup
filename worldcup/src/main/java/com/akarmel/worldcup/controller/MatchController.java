@@ -15,6 +15,7 @@ import com.akarmel.worldcup.entity.Matches;
 import com.akarmel.worldcup.entity.Team;
 import com.akarmel.worldcup.service.MatchService;
 import com.akarmel.worldcup.service.TeamService;
+import com.akarmel.worldcup.util.Constant;
 
 @Controller
 @RequestMapping("/match")
@@ -27,7 +28,7 @@ public class MatchController {
 	private TeamService teamService;
 	
 	@GetMapping("/list")
-	public String getMatch(Model theModel) {		
+	public String getMatch(@RequestParam("year") String theYear, Model theModel) {		
 		
 		/*
 		 * List<Team> theTeam = teamService.getTeams();
@@ -35,32 +36,32 @@ public class MatchController {
 		 * theModel.addAttribute("theTeam_b", theTeam);
 		 */
 		
-		List<Matches> theMatch = matchService.getMatch();		
+		List<Matches> theMatch = matchService.getMatch(theYear);		
 		theModel.addAttribute("matches", theMatch);		
 		
 		return "matches";
 	}
 		
 	@GetMapping("/Update")
-	public String showFormForUpdate(@RequestParam("matchId") int theId,
+	public String showFormForUpdate(@RequestParam("year") String theYear,
+									@RequestParam("matchId") int theId,
 									Model theModel) {										
-
+ 
+		int TeamId = 0;
 		Matches theMatch = matchService.getMatch(theId);	
 		theModel.addAttribute("match", theMatch);
-
 		
-		List<Team> theTeam = teamService.getTeams();
+		List<Team> theTeam = teamService.getTeams(theYear, TeamId);
 		theModel.addAttribute("theTeam_a", theTeam);		
 		theModel.addAttribute("theTeam_b", theTeam);		
-			
-		
+					
 		return "match";										
 	}	
 	
 	@GetMapping("/new")
 	public String getNewMatch(Model theModel) {			
-		System.out.println("new");
-		List<Team> theTeam = teamService.getTeams();
+		int TeamId = 0;
+		List<Team> theTeam = teamService.getTeams(Constant.WORLD_CUP_YEAR_DEFAULT, TeamId);
 		theModel.addAttribute("theTeam_a", theTeam);		
 		theModel.addAttribute("theTeam_b", theTeam);		
 		

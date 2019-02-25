@@ -8,7 +8,7 @@ public interface TeamService {
 
 	public void saveTeam(Team theTeam);
 	
-	public List<Team> getTeams();
+	public List<Team> getTeams(String Year, int TeamId);
 	
 	public Team getTeam(int theId);		
 }

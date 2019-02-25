@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,7 +25,8 @@ public class Group {
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany(mappedBy="groupetes",			  
+	
+	@OneToMany(mappedBy="grupete",			  
 			   cascade={CascadeType.PERSIST, 
 					   	CascadeType.MERGE,
 					   	CascadeType.DETACH,
@@ -33,7 +36,7 @@ public class Group {
 	public Group() {		
 	}
 	
-	public Group(int id, String name, String nombre) {
+	public Group(int id, String name) {
 		this.name = name;
 	}
 	
@@ -52,6 +55,12 @@ public class Group {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Group(int id, String name, List<Team> team) {	
+		this.id = id;
+		this.name = name;
+		this.team = team;
+	}	
 
 	public List<Team> getTeam() {
 		return team;

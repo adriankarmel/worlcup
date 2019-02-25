@@ -8,7 +8,7 @@ public interface MatchDAO {
 	
 	public void saveMatch(Matches theMatch);
 	
-	public List<Matches> getMatch();
+	public List<Matches> getMatch(String theYear);
 
 	public Matches getMatch(int theId);
 

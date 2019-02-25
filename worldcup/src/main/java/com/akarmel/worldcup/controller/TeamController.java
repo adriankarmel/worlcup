@@ -15,6 +15,7 @@ import com.akarmel.worldcup.entity.Group;
 import com.akarmel.worldcup.entity.Team;
 import com.akarmel.worldcup.service.GroupService;
 import com.akarmel.worldcup.service.TeamService;
+import com.akarmel.worldcup.util.Constant;
 
 @Controller
 @RequestMapping("/team")
@@ -27,8 +28,12 @@ public class TeamController {
 	private GroupService groupService;	
 	
 	@GetMapping("/list")
-	public String showPage(Model theModel) {
-		List<Team> theTeam = teamService.getTeams();
+	public String showPage(@RequestParam("year") String theYear, Model theModel) {		
+		
+		int TeamId = 0;
+		List<Team> theTeam = teamService.getTeams(theYear, TeamId);
+		
+		System.out.println("anio: " + theYear);
 		
 		theModel.addAttribute("teams", theTeam);		
 		
@@ -64,6 +69,14 @@ public class TeamController {
 		
 		teamService.saveTeam(theTeam);
 		
-		return "redirect:/team/list";
+		return "redirect:/team/list?year=" + Constant.WORLD_CUP_YEAR_DEFAULT;
 	}	
+	
+	@GetMapping("/2018")
+	public String showPage( @RequestParam("teamId") int theTeamId, Model theModel) {		
+		
+		List<Team> theTeam = teamService.getTeams(Constant.YEAR_2018, theTeamId);	
+		
+		return "fixture";
+	}
 }
