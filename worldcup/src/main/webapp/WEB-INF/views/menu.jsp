@@ -17,6 +17,12 @@
 		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 	
 		<title><%= Constant.APP_TITLE %></title>
+		
+		<script>
+			$(function () {
+				  $('[data-toggle="tooltip"]').tooltip()
+			})
+		</script>
 	</head>
 		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,11 +34,14 @@
 		  <div class="collapse navbar-collapse" id="navbarColor02">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/worldcup/team/list?year=<%= Constant.WORLD_CUP_YEAR_DEFAULT%>">Teams <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="/worldcup/team/list?year=<%= Constant.YEAR_2022%>">Teams <span class="sr-only">(current)</span></a>
 		      </li>   
 		      <li class="nav-item">
-		        <a class="nav-link" href="/worldcup/match/list?year=<%= Constant.WORLD_CUP_YEAR_DEFAULT%>">Matches</a>
+		        <a class="nav-link" href="/worldcup/match/list?year=<%= Constant.YEAR_2022%>">Matches</a>
 		      </li>		  
+		      <li class="nav-item">
+		        <a class="nav-link" href="/worldcup/">Home</a>
+		      </li>
 		    </ul>		
 		  </div>
 		</nav>

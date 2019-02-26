@@ -30,22 +30,10 @@
 		<%@include file="menu.jsp"%>
 		<form:form action="search" method="POST">	
 			<div class="container">	
-				<div class="row">
-					 <div class="col-md-6 col-sm-6 col-xs-6">			
-						<div class="span9 btn-block no-padding">						
-						    <button class="btn btn-large btn-block btn-primary" type="button" onclick="location.href='/worldcup/match/list?year=<%= Constant.WORLD_CUP_YEAR_DEFAULT%>'">2018</button>
-						</div>
-					 </div>
-					 <div class="col-md-6 col-sm-6 col-xs-6">
 	
-						<div class="span9 btn-block no-padding">						
-						    <button class="btn btn-large btn-block btn-primary" type="button" onclick="location.href='/worldcup/match/list?year=2022'">2022</button>
-						</div>
-					</div>
-				</div>
 				<hr class="line-yellow">
 				<h2 class="text-secondary yellow">Matches
-					<button type="button" class="btn btn-outline-dark border-yellow" onclick="location.href='/worldcup/match/new'" title="Add Match">+</button>
+					<button type="button" class="btn btn-outline-dark border-yellow" onclick="location.href='/worldcup/match/new'" data-toggle="tooltip" data-placement="top" title="Add New Match">+</button>
 				</h2>
 				<hr class="line-yellow">
 				<c:forEach var="tempMatch" items="${matches}">

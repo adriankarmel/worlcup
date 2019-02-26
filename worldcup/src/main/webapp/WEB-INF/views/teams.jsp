@@ -10,7 +10,7 @@
 		<title>World Cup 2018/2022</title>
 		
 		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">	
-
+		
 		<style>	    
 		    .btn-primary {
 		        color: #ffffff !important;
@@ -27,28 +27,13 @@
 	</head>
 	<body class="form-dark">
 		<%@include file="menu.jsp"%>
-		<form:form action="search" method="POST">				
+		<form:form action="search" method="POST">
 			<div class="container">
-				<div class="row">
-					 <div class="col-md-6 col-sm-6 col-xs-6">			
-						<div class="span9 btn-block no-padding">						
-						    <button class="btn btn-large btn-block btn-primary" type="button" onclick="location.href='/worldcup/team/list?year=<%= Constant.WORLD_CUP_YEAR_DEFAULT%>'">2018</button>
-						</div>
-					 </div>
-					 <div class="col-md-6 col-sm-6 col-xs-6">
-	
-						<div class="span9 btn-block no-padding">						
-						    <button class="btn btn-large btn-block btn-primary" type="button" onclick="location.href='/worldcup/team/list?year=2022'">2022</button>
-						</div>
-					 </div>
-				</div>
-				<hr class="line-yellow">
 				<h2 class="text-secondary yellow">Teams
-					<button type="button" class="btn btn-outline-dark border-yellow" onclick="location.href='/worldcup/team/new'" title="Add Team">+</button>
+					<button type="button" class="btn btn-outline-dark border-yellow red-tooltip" onclick="location.href='/worldcup/team/new'" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add New Team">+</button>
 				</h2>		
 				<hr class="line-yellow">
 				<c:forEach var="tempTeam" items="${teams}">		
-							
 					<div class="row">
 						<div class="col-sm-12">
 							<c:url var="updateLink" value="/team/Update">

@@ -10,5 +10,5 @@ public interface TeamService {
 	
 	public List<Team> getTeams(String Year, int TeamId);
 	
-	public Team getTeam(int theId);		
+	public Team getTeam(int theId);	
 }

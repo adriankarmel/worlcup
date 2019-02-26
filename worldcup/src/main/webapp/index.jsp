@@ -28,12 +28,24 @@
 			  align-content: flex-start;
 			  -webkit-flex-flow: row wrap;
 			  flex-flow: row wrap;		  
-			  height: 500px;
-			  border: 1px solid #000000;
+			  height: 500px;			 
 		}
 		
 		.circle {
-		    border: 5px solid  #7FFF00;
+		 	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220' width='100%25' height='100%25' preserveAspectRatio='none'><defs><linearGradient id='gradient'><stop offset='0' style='stop-color:%230070d8' /><stop offset='0.5' style='stop-color:%232cdbf1' /><stop offset='1' style='stop-color:%2383eb8a' /></linearGradient></defs><ellipse ry='100' rx='100' cy='110' cx='110' style='fill:none;stroke:url(%23gradient);stroke-width:6;' /></svg>");
+  			background-size: 100% 100%; /* Fix for Fifefox image scaling */		   
+		    border-radius: 50%;
+		    background-color: black;
+		    width: 200px;
+		    height: 200px;
+		    border-radius: 1000px;     
+		    margin: 50px 0.5em 0.5em 0.5em; 
+		    color: white;
+		  	font-weight: bold;
+		}
+		.circle1 {
+		 	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220' width='100%25' height='100%25' preserveAspectRatio='none'><defs><linearGradient id='gradient'><stop offset='0' style='stop-color:rgb(255,0,0)' /><stop offset='0.5' style='stop-color:rgb(255,128,0)' /><stop offset='1' style='stop-color:%2383eb8a' /></linearGradient></defs><ellipse ry='100' rx='100' cy='110' cx='110' style='fill:none;stroke:url(%23gradient);stroke-width:6;' /></svg>");
+  			background-size: 100% 100%; /* Fix for Fifefox image scaling */		   
 		    border-radius: 50%;
 		    background-color: black;
 		    width: 200px;
@@ -45,8 +57,8 @@
 		}
 		
 		.circle.kitten {
-			border: 5px solid #FFD700;
-		    background-color: black;
+		    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220' width='100%25' height='100%25' preserveAspectRatio='none'><defs><linearGradient id='gradient'><stop offset='0' style='stop-color:rgb(0,128,0)' /><stop offset='0.5' style='stop-color:rgb(128,0,128)' /><stop offset='1' style='stop-color:rgb(170,255,119)' /></linearGradient></defs><ellipse ry='100' rx='100' cy='110' cx='110' style='fill:none;stroke:url(%23gradient);stroke-width:6;' /></svg>");
+  			background-size: 100% 100%; /* Fix for Fifefox image scaling */	    background-color: black;
 		    background-size: cover;
 		    background-repeat: none;
 		    background-position: center center;
@@ -55,7 +67,18 @@
 		}
 		
 		.circle:hover {
-		     background-color: grey;		
+		     background-color: #009999;	
+		     font-size: 20px;	
+		}
+
+		.circle1:hover {
+		     background-color: rgb(255,165,0);
+		     font-size: 20px;		
+		}
+
+		.circle.kitten:hover {
+		     background-color: #4CA64C;	
+		      font-size: 20px;		
 		}
 		
 		.aligner {
@@ -64,7 +87,7 @@
 			  justify-content: center;
 			  height: 100%;
 			  text-align: center;
-		}
+		}		
 	
 	</style>
 </head>
@@ -78,24 +101,41 @@
 %>
 
 	<body style="background:black;"> 
+	
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="grad1"></div>
+			</div>
+		</div>
 		<div class="container">
+		
+		
 		  <div class="circle">
 		    <div class="aligner">
 		      	<a href="/worldcup/view/match/2018?teamId=0" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_2018 %></a>
 		    </div>
 		  </div>
 		  
-		 <div class="circle" style="border: 5px solid #FF4500;">
+		 <div class="circle1">
 		    <div class="aligner">
 		      	<a href="#" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_2022 %></a>
 		    </div>
 		  </div> 
-		 
+		  
 		  <div class="circle kitten">
 		    <div class="aligner">
-		      	<a href="/worldcup/team/list?year=<%= Constant.WORLD_CUP_YEAR_DEFAULT%>" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_CRUD %> </a>
+		      	<a href="/worldcup/team/list?year=<%= Constant.YEAR_2022%>" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_CRUD %> </a>
 		    </div>
 		  </div>
-		</div>  
+		</div> 
+		<footer class="footer">
+		      <div class="container">
+		        <p class="text-center text-white lead">
+					<a href="http://www.akarmel.ca" target="_blank" style="text-decoration: none;color:white !important;">			
+						www.akarmel.ca
+					</a>			
+				</p>
+		      </div>		     
+		  </footer>	 
 	</body>
 </html>

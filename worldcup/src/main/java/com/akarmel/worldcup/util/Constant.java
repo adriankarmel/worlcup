@@ -10,4 +10,5 @@ public class Constant {
 	
 	public static final String WORLD_CUP_YEAR_DEFAULT = "2018"; 
 	public static final String YEAR_2018 = "2018";
+	public static final String YEAR_2022 = "2022";
 }
