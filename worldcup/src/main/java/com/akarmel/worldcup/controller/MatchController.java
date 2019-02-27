@@ -60,14 +60,14 @@ public class MatchController {
 	
 	@GetMapping("/new")
 	public String getNewMatch(Model theModel) {			
+		
 		int TeamId = 0;
-		List<Team> theTeam = teamService.getTeams(Constant.WORLD_CUP_YEAR_DEFAULT, TeamId);
+		
+		List<Team> theTeam = teamService.getTeams(Constant.YEAR_2022, TeamId);
 		theModel.addAttribute("theTeam_a", theTeam);		
 		theModel.addAttribute("theTeam_b", theTeam);		
 		
 		theModel.addAttribute("match", new Matches());
-		
-		System.out.println("new aaa");
 		
 		return "match";
 	}
@@ -77,6 +77,6 @@ public class MatchController {
 		
 		matchService.saveMatch(theMatch);
 		
-		return "redirect:/match/list";
+		return "redirect:/match/list?year=" + Constant.YEAR_2022;
 	}	
 }

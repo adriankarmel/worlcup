@@ -16,15 +16,15 @@ body{
 }
 
 .yellow{	
-	color:#FFD700 !important;
+	color:#f00 !important;
 }
 
 .border-yellow{
-	border-color:#FFD700 !important;
-	color:#FFD700;
+	border-color:#f00 !important;
+	color:#f00;
 }
 .line-yellow{
-	background-color:#FFD700 !important;
+	background-color:#f00 !important;
 }
 
 .text-justify-xs {
@@ -81,15 +81,21 @@ a:active {
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #f5f5f5;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #D13438;
+   color: white;
+   text-align: center;
 }
-.footer {
-display:block;	
+.letter-gradient {
+	font-size: 28px;
+  	background: -webkit-linear-gradient(#551a8b, #f00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
 .red-tooltip + .tooltip > .tooltip-inner {
 	background-color: #f00;
 }

@@ -11,4 +11,6 @@ public interface TeamDAO {
 	public List<Team> getTeams(String theYear, int theTeamId);
 
 	public Team getTeam(int theId);
+	
+	public void deleteTeam(int theId);
 }

@@ -112,7 +112,5 @@ public class Matches {
 
 	public void setResult_B(int result_B) {
 		this.result_B = result_B;
-	}
-
-	
+	}	
 }

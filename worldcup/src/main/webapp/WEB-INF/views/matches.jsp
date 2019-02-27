@@ -30,7 +30,9 @@
 		<%@include file="menu.jsp"%>
 		<form:form action="search" method="POST">	
 			<div class="container">	
-	
+				<h2 class="text-secondary text-center letter-gradient">
+					<%= Constant.APP_TITLE %> <%= Constant.YEAR_2022 %>
+				</h2>		
 				<hr class="line-yellow">
 				<h2 class="text-secondary yellow">Matches
 					<button type="button" class="btn btn-outline-dark border-yellow" onclick="location.href='/worldcup/match/new'" data-toggle="tooltip" data-placement="top" title="Add New Match">+</button>
@@ -64,6 +66,13 @@
 					<hr class="line-yellow">	
 				</c:forEach>
 			</div>		
+			<div class="footer">
+	    	   <p class="text-center text-white lead">
+					<a href="http://www.akarmel.ca" target="_blank" style="text-decoration:none;color:white !important;">			
+						www.akarmel.ca
+					</a>			
+				</p>
+	   		</div>		
 		</form:form>			
 	</body>
 </html>

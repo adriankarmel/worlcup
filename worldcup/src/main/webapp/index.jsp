@@ -124,18 +124,16 @@
 		  
 		  <div class="circle kitten">
 		    <div class="aligner">
-		      	<a href="/worldcup/team/list?year=<%= Constant.YEAR_2022%>" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_CRUD %> </a>
+		      	<a href="/worldcup/team/list?year=<%= Constant.YEAR_2022%>" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_CRUD %> <%= Constant.YEAR_2022%></a>
 		    </div>
 		  </div>
-		</div> 
-		<footer class="footer">
-		      <div class="container">
-		        <p class="text-center text-white lead">
-					<a href="http://www.akarmel.ca" target="_blank" style="text-decoration: none;color:white !important;">			
-						www.akarmel.ca
-					</a>			
-				</p>
-		      </div>		     
-		  </footer>	 
+		</div>
+ 		<div class="footer">
+    	   <p class="text-center text-white lead">
+				<a href="http://www.akarmel.ca" target="_blank" style="text-decoration:none;color:white !important;">			
+					www.akarmel.ca
+				</a>			
+			</p>
+   		</div>
 	</body>
 </html>

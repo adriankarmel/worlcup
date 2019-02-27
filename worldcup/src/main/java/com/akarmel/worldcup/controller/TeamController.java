@@ -33,8 +33,6 @@ public class TeamController {
 		int TeamId = 0;
 		List<Team> theTeam = teamService.getTeams(theYear, TeamId);
 		
-		System.out.println("anio: " + theYear);
-		
 		theModel.addAttribute("teams", theTeam);		
 		
 		return "teams";
@@ -45,7 +43,7 @@ public class TeamController {
 									Model theModel) {										
 
 		List<Group> theGroup = groupService.getGroups();
-		theModel.addAttribute("grupos", theGroup);										
+		theModel.addAttribute("theGroup", theGroup);										
 
 		Team theTeam = teamService.getTeam(theId);	
 		theModel.addAttribute("team", theTeam);
@@ -69,7 +67,7 @@ public class TeamController {
 		
 		teamService.saveTeam(theTeam);
 		
-		return "redirect:/team/list?year=" + Constant.WORLD_CUP_YEAR_DEFAULT;
+		return "redirect:/team/list?year=" + Constant.YEAR_2022;
 	}	
 	
 	@GetMapping("/2018")
@@ -79,4 +77,14 @@ public class TeamController {
 		
 		return "fixture";
 	}
+	
+	@GetMapping("/Delete")
+	public String deleteTeam(@RequestParam("teamId") int theId,
+									Model theModel) {										
+
+		Team theTeam = teamService.deleteTeam(theId);	
+		theModel.addAttribute("team", theTeam);
+
+		return "team";										
+	}	
 }

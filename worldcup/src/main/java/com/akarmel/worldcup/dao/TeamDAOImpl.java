@@ -54,4 +54,18 @@ public class TeamDAOImpl implements TeamDAO {
 		// return the results				
 		return teams;
 	}
+
+	@Override
+	public void deleteTeam(int theId) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		String sSql = "DELETE Team WHERE id =" + theId;
+		
+		Query<Team> theQuery = currentSession.createQuery(sSql, Team.class);
+		
+		// execute query and get result list
+		List<Team> teams = theQuery.getResultList();
+		
+	}
 }

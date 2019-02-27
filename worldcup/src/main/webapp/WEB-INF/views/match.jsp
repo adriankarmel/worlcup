@@ -34,6 +34,9 @@
 		<%@include file="menu.jsp"%>
 
 		<div class="container">
+			<h2 class="text-secondary text-center letter-gradient">
+					<%= Constant.APP_TITLE %> <%= Constant.YEAR_2022 %>
+			</h2>			
 			<h2 class="text-secondary yellow">Match</h2>
 			<hr class="line-yellow">
 			<div class="form-group">
@@ -43,7 +46,7 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="col-sm-6">
-						<label class="text-secondary yellow">Select Team A</label>
+						<label class="text-secondary">Select Team A</label>
 						<form:select path="team_a.id" cssClass="form-control">
 							<c:forEach var="tempTeamA" items="${theTeam_a}">
 								<option value="${tempTeamA.id}" ${match.team_a.id == tempTeamA.id ? 'selected' : ''}>${tempTeamA.name}</option>
@@ -51,7 +54,7 @@
 						</form:select>
 					</div>
 					<div class="col-sm-6">						
-						<label class="text-secondary yellow">Scort Team A</label>
+						<label class="text-secondary">Scort Team A</label>
 						<form:select path="result_A" cssClass="form-control">
 							<option value="0" ${match.result_A == "0" ? 'selected' : ''}>0</options>
 							<option value="1" ${match.result_A == "1" ? 'selected' : ''}>1</options>	
@@ -72,7 +75,7 @@
 			<div class="form-group">	
 				<div class="row">
 					<div class="col-sm-6">					 	
-						<label class="text-secondary yellow">Select Team B</label>
+						<label class="text-secondary">Select Team B</label>
 						<form:select path="team_b.id" cssClass="form-control">
 							<c:forEach var="tempTeamB" items="${theTeam_b}">
 								<option value="${tempTeamB.id}" ${match.team_b.id == tempTeamB.id ? 'selected' : ''}>${tempTeamB.name}</option>
@@ -80,7 +83,7 @@
 						</form:select>
 					</div>									
 					<div class="col-sm-6">
-						<label class="text-secondary yellow">Scort Team B</label>
+						<label class="text-secondary">Scort Team B</label>
 						<form:select path="result_B" cssClass="form-control">
 							<option value="0" ${match.result_B == "0" ? 'selected' : ''}>0</options>
 							<option value="1" ${match.result_B == "1" ? 'selected' : ''}>1</options>
@@ -110,14 +113,22 @@
 						<form:input path="hora" cssClass="datepicker form-control" id="datepicker" placeholder="HH:mm" />
 					</div>
 				</div>					 
-			</div>			
-		 
-		
+			</div>		
 		 	<div align="center">				
 				<button type="submit" class="btn default">Save</button>		
 				<button type="button" class="btn default" onclick="location.href='/worldcup/match/list'">Go Back</button>																	   				
 			</div>
 		</div>
+		<br>
+		<br>
+		<br>
+		<div class="footer">
+    	   <p class="text-center text-white lead">
+				<a href="http://www.akarmel.ca" target="_blank" style="text-decoration:none;color:white !important;">			
+					www.akarmel.ca
+				</a>			
+			</p>
+   		</div>		
 	</form:form>
 </body>
 </html>
