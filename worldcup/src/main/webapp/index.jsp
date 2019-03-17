@@ -58,7 +58,7 @@
 		
 		.circle.kitten {
 		    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220' width='100%25' height='100%25' preserveAspectRatio='none'><defs><linearGradient id='gradient'><stop offset='0' style='stop-color:rgb(0,128,0)' /><stop offset='0.5' style='stop-color:rgb(128,0,128)' /><stop offset='1' style='stop-color:rgb(170,255,119)' /></linearGradient></defs><ellipse ry='100' rx='100' cy='110' cx='110' style='fill:none;stroke:url(%23gradient);stroke-width:6;' /></svg>");
-  			background-size: 100% 100%; /* Fix for Fifefox image scaling */	    background-color: black;
+  			background-size: 101% 100%; /* Fix for Fifefox image scaling */	    background-color: black;
 		    background-size: cover;
 		    background-repeat: none;
 		    background-position: center center;
