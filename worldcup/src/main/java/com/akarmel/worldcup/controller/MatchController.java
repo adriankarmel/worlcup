@@ -27,8 +27,8 @@ public class MatchController {
 	@Autowired
 	private TeamService teamService;
 	
-	@GetMapping("/list")
-	public String getMatch(@RequestParam("year") String theYear, Model theModel) {		
+	@GetMapping("/2022")
+	public String getMatch(Model theModel) {		
 		
 		/*
 		 * List<Team> theTeam = teamService.getTeams();
@@ -36,7 +36,7 @@ public class MatchController {
 		 * theModel.addAttribute("theTeam_b", theTeam);
 		 */
 		
-		List<Matches> theMatch = matchService.getMatch(theYear);		
+		List<Matches> theMatch = matchService.getMatch(Constant.YEAR_2022);		
 		theModel.addAttribute("matches", theMatch);		
 		
 		return "matches";

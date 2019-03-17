@@ -27,17 +27,17 @@ public class TeamController {
 	@Autowired
 	private GroupService groupService;	
 	
-	@GetMapping("/list")
-	public String showPage(@RequestParam("year") String theYear, Model theModel) {		
+	@GetMapping("/2022")
+	public String showPage(Model theModel) {		
 		
 		int TeamId = 0;
-		List<Team> theTeam = teamService.getTeams(theYear, TeamId);
+		List<Team> theTeam = teamService.getTeams(Constant.YEAR_2022, TeamId);
 		
 		theModel.addAttribute("teams", theTeam);		
 		
 		return "teams";
 	}
-	
+		
 	@GetMapping("/Update")
 	public String showFormForUpdate(@RequestParam("teamId") int theId,
 									Model theModel) {										

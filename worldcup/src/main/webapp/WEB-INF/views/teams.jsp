@@ -36,26 +36,52 @@
 					<button type="button" class="btn btn-outline-dark border-yellow red-tooltip" onclick="location.href='/worldcup/team/new'" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add New Team">+</button>
 					
 				</h2>	
-					
-				<hr class="line-yellow">
-				<c:forEach var="tempTeam" items="${teams}">		
-					<div class="row">
-						<div class="col-sm-10">
-							<c:url var="updateLink" value="/team/Update">
-								<c:param name="teamId" value="${tempTeam.id}" />
-							</c:url>	
-													
-							<img src="<c:url value="/resources/img/${tempTeam.flagPath}"/>" class="img-thumbnail form-dark"/>											
-							<a href="${updateLink}" class="a-nada"> ${tempTeam.name}</a>							
-						</div>
-						<div class="col-sm-2">
-							<h2 class="text-secondary yellow">
-								<button type="button" class="btn btn-outline-dark border-yellow" onclick="location.href='/worldcup/team/delete'" data-toggle="tooltip" data-placement="top" title="Delete a Match">-</button>
-							</h2>
-						</div>	
-					</div>	
-					<hr class="line-yellow">	
-				</c:forEach>	
+				<div class="row">
+		
+				    <jsp:useBean id="processed" class="java.util.HashMap" />
+				    <c:forEach items="${teams}" var="tempTeam">
+				    
+				  		<c:url var="updateLink" value="/team/Update">
+							<c:param name="teamId" value="${tempTeam.id}" />
+						</c:url>	
+						
+				        <c:if test="${empty processed[tempTeam.grupete.name]}">
+				            <c:set target="${processed}" property="${tempTeam.grupete.name}" value="true" />
+				            <div class="col-md-12 col-sm-12 col-xs-12 text-secondary font-weight-bold">	
+			                    ${tempTeam.grupete.name}				                  			                    
+				        	</div>  
+		            	    <div class="col-md-12 col-sm-12 col-xs-12">	
+								 <hr class="line-grey"> 
+							</div> 
+			                <div class="col-md-12 col-sm-12 col-xs-12 col py-3 px-md-5">
+				               	 <img src="<c:url value="/resources/img/${tempTeam.flagPath}"/>" class="img-thumbnail"/>&nbsp; 				                    
+				                 <a href="${updateLink}" class="a-nada"> ${tempTeam.name}</a>&nbsp; 
+		                      	 <button type="button" class="btn btn-outline-dark border-yellow" onclick="location.href='/worldcup/team/delete'" data-toggle="tooltip" data-placement="top" title="Delete Team">-</button>
+							</div> 
+							
+							<div class="col-md-12 col-sm-12 col-xs-12">	
+								<hr class="line-grey"> 
+							</div>					              
+				            <c:forEach items="${teams}" var="other">				           
+				                <c:if test="${tempTeam.grupete.name == other.grupete.name and tempTeam.name != other.name}">
+					              	<c:url var="updateLink1" value="/team/Update">
+										<c:param name="teamId" value="${other.id}" />
+									</c:url>	
+					                
+					                <div class="col-md-12 col-sm-12 col-xs-12 col py-3 px-md-5">						         
+					                     <img src="<c:url value="/resources/img/${other.flagPath}"/>" class="img-thumbnail"/>&nbsp; 
+					                     <a href="${updateLink1}" class="a-nada"> ${other.name}</a>	&nbsp; 
+					                  	<button type="button" class="btn btn-outline-dark border-yellow" onclick="location.href='/worldcup/team/delete'" data-toggle="tooltip" data-placement="top" title="Delete Team">-</button>
+									</div>	
+									
+									 <div class="col-md-12 col-sm-12 col-xs-12">	
+										 <hr class="line-grey"> 
+									 </div>
+						       </c:if>
+				            </c:forEach>
+						</c:if>						  
+				    </c:forEach>
+				</div>	
 			</div>
 			<div class="footer">
 	    	   <p class="text-center text-white lead">

@@ -132,6 +132,34 @@
 					<hr class="line-grey">	
 				</c:forEach>	
 			</div>
+					<div class="row">
+		
+				    <jsp:useBean id="processed" class="java.util.HashMap" />
+				    <c:forEach items="${teams}" var="tempTeam">
+				        <c:if test="${empty processed[tempTeam.grupete.name]}">
+				            <c:set target="${processed}" property="${tempTeam.grupete.name}" value="true" />
+				            <div class="col-md-12 col-sm-12 col-xs-12 text-secondary font-weight-bold">	
+			                    ${tempTeam.grupete.name}	
+			                    <hr class="line-grey">  
+				            </div>  
+			                <div class="col-md-12 col-sm-12 col-xs-12">						         
+			                     <img src="<c:url value="/resources/img/${tempTeam.flagPath}"/>" class="img-thumbnail"/>
+			                     ${tempTeam.name}		
+			                     <hr class="line-grey">  	                    
+				            </div>      
+				            <hr class="line-grey">  
+				            <c:forEach items="${teams}" var="other">
+				                <c:if test="${tempTeam.grupete.name == other.grupete.name and tempTeam.name != other.name}">
+					                <div class="col-md-12 col-sm-12 col-xs-12">						         
+					                     <img src="<c:url value="/resources/img/${other.flagPath}"/>" class="img-thumbnail"/>
+					                     ${other.name}
+					                   <hr class="line-grey">  
+					                </div>
+					            </c:if>
+				            </c:forEach>
+						</c:if>						  
+				    </c:forEach>
+				</div>
 		</form:form>
 	</body>
 </html>

@@ -30,7 +30,7 @@
 		<%@include file="menu.jsp"%>
 		<form:form action="search" method="POST">	
 			<div class="container">	
-				<h2 class="text-secondary text-center letter-gradient">
+				<h2 class="text-secondary letter-gradient">
 					<%= Constant.APP_TITLE %> <%= Constant.YEAR_2022 %>
 				</h2>		
 				<hr class="line-yellow">
@@ -43,13 +43,13 @@
 						<c:param name="matchId" value="${tempMatch.id}" />
 					</c:url>							
 					<div class="row">
-						<div class="col-sm-6 text-center">	
+						<div class="col-sm-6">	
 							<a href="${updateLinkM}" class="a-nada">
 								<img src="<c:url value="/resources/img/${tempMatch.team_a.flagPath}"/>" class="img-thumbnail form-dark"/>
 							</a>	
 							<a href="${updateLinkM}" class="a-nada"> ${tempMatch.team_a.name}</a>	
 						</div>
-						<div class="col-sm-6 text-center">	
+						<div class="col-sm-6 text-right text-right text-xs-left">	
 							<a href="${updateLinkM}" class="a-nada">							
 								<img src="<c:url value="/resources/img/${tempMatch.team_b.flagPath}"/>" class="img-thumbnail form-dark"/>								
 							</a>
@@ -59,7 +59,7 @@
 						</div>
 					</div>	
 					<div class="row">
-						<div class="col-sm-12 text-center a-nada">
+						<div class="col-sm-12 a-nada text-center text-xs-left">
 							${tempMatch.dia} - ${tempMatch.hora}
 						</div>
 					</div>	
