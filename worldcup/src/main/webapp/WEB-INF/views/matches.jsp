@@ -30,7 +30,7 @@
 		<%@include file="menu.jsp"%>
 		<form:form action="search" method="POST">	
 			<div class="container">	
-				<h2 class="text-secondary letter-gradient">
+				<h2 class="text-secondary text-center letter-gradient">
 					<%= Constant.APP_TITLE %> <%= Constant.YEAR_2022 %>
 				</h2>		
 				<hr class="line-yellow">

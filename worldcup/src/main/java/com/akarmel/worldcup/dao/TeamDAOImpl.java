@@ -46,6 +46,7 @@ public class TeamDAOImpl implements TeamDAO {
 		}else {
 			sSql = "FROM Team WHERE year = " + year + " AND (team_id_a = " + teamId + " OR team_id_b = " + teamId + " ORDER BY group_id ";			
 		}
+		System.out.println("sSql:" + sSql);
 		Query<Team> theQuery = currentSession.createQuery(sSql, Team.class);
 		
 		// execute query and get result list

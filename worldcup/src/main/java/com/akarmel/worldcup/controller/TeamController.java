@@ -37,6 +37,17 @@ public class TeamController {
 		
 		return "teams";
 	}
+	
+	@GetMapping("/2018")
+	public String showTeam2018(Model theModel) {	
+		
+		int theTeamId = 0;		
+		List<Team> theTeam = teamService.getTeams(Constant.YEAR_2018, theTeamId);	
+		
+		theModel.addAttribute("teams", theTeam);	
+		
+		return "team-2018";
+	}
 		
 	@GetMapping("/Update")
 	public String showFormForUpdate(@RequestParam("teamId") int theId,
@@ -68,15 +79,8 @@ public class TeamController {
 		teamService.saveTeam(theTeam);
 		
 		return "redirect:/team/list?year=" + Constant.YEAR_2022;
-	}	
-	
-	@GetMapping("/2018")
-	public String showPage( @RequestParam("teamId") int theTeamId, Model theModel) {		
-		
-		List<Team> theTeam = teamService.getTeams(Constant.YEAR_2018, theTeamId);	
-		
-		return "fixture";
-	}
+	}		
+
 	
 	@GetMapping("/Delete")
 	public String deleteTeam(@RequestParam("teamId") int theId,

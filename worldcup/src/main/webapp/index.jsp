@@ -112,7 +112,7 @@
 		
 		  <div class="circle">
 		    <div class="aligner">
-		      	<a href="/worldcup/view/match/2018?teamId=0" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_2018 %></a>
+		      	<a href="/worldcup/team/2018" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_2018 %></a>
 		    </div>
 		  </div>
 		  

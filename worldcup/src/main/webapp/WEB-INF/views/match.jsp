@@ -116,7 +116,7 @@
 			</div>		
 		 	<div align="center">				
 				<button type="submit" class="btn default">Save</button>		
-				<button type="button" class="btn default" onclick="location.href='/worldcup/match/list'">Go Back</button>																	   				
+				<button type="button" class="btn default" onclick="location.href='/worldcup/match/<%= Constant.YEAR_2022%>'">Go Back</button>																	   				
 			</div>
 		</div>
 		<br>

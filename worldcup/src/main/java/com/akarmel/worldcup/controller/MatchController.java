@@ -43,15 +43,14 @@ public class MatchController {
 	}
 		
 	@GetMapping("/Update")
-	public String showFormForUpdate(@RequestParam("year") String theYear,
-									@RequestParam("matchId") int theId,
+	public String showFormForUpdate(@RequestParam("matchId") int theId,
 									Model theModel) {										
  
 		int TeamId = 0;
 		Matches theMatch = matchService.getMatch(theId);	
 		theModel.addAttribute("match", theMatch);
 		
-		List<Team> theTeam = teamService.getTeams(theYear, TeamId);
+		List<Team> theTeam = teamService.getTeams(Constant.YEAR_2022, TeamId);
 		theModel.addAttribute("theTeam_a", theTeam);		
 		theModel.addAttribute("theTeam_b", theTeam);		
 					
