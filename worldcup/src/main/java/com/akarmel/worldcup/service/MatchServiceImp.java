@@ -33,4 +33,10 @@ public class MatchServiceImp implements MatchService {
 	public Matches getMatch(int theId) {
 		return MatchDAO.getMatch(theId);
 	}
+
+	@Override
+	@Transactional
+	public List<Matches> getTeamInMatches(int theId, String theYear) {
+		return MatchDAO.getTeamByMatch(theId, theYear);
+	}
 }

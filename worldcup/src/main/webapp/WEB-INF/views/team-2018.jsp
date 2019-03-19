@@ -26,10 +26,10 @@
 		</style>
 	</head>
 	<body class="form-nosodark">
-		<%@include file="menu.jsp"%>
+		<%@include file="menu2018.jsp"%>
 		<form:form action="search" method="POST">
 			<div class="container">
-				<h2 class="text-secondary text-center letter-gradient">
+				<h2 class="text-secondary text-center font-weight-bold letter-gradient">
 					<%= Constant.APP_TITLE %> <%= Constant.YEAR_2018 %>
 				</h2>		
 				<h2 class="text-secondary yellow">Teams</h2>	
@@ -41,10 +41,10 @@
 				  		<c:url var="updateLink" value="/team/Update">
 							<c:param name="teamId" value="${tempTeam.id}" />
 						</c:url>	
-						
+					
 				        <c:if test="${empty processed[tempTeam.grupete.name]}">
 				            <c:set target="${processed}" property="${tempTeam.grupete.name}" value="true" />
-				            <div class="col-md-12 col-sm-12 col-xs-12 text-secondary font-weight-bold">	
+				            <div class="col-md-12 col-sm-12 col-xs-12 text-secondary font-weight-bold pink">	
 			                    ${tempTeam.grupete.name}				                  			                    
 				        	</div>  
 		            	    <div class="col-md-12 col-sm-12 col-xs-12">	
@@ -52,7 +52,7 @@
 							</div> 
 			                <div class="col-md-12 col-sm-12 col-xs-12 col py-3 px-md-5">
 				               	 <img src="<c:url value="/resources/img/${tempTeam.flagPath}"/>" class="img-thumbnail"/>&nbsp; 				                    
-				                 <a href="${updateLink}" class="a-nada yellow"> ${tempTeam.name}</a>&nbsp; 
+				                 <a href="${updateLink}" class="a-nada pink"> ${tempTeam.name}</a>&nbsp; 
 		                    </div> 
 							
 							<div class="col-md-12 col-sm-12 col-xs-12">	
@@ -66,7 +66,7 @@
 					                
 					                <div class="col-md-12 col-sm-12 col-xs-12 col py-3 px-md-5">						         
 					                     <img src="<c:url value="/resources/img/${other.flagPath}"/>" class="img-thumbnail"/>&nbsp; 
-					                     <a href="${updateLink1}" class="a-nada yellow"> ${other.name}</a>	&nbsp; 
+					                     <a href="${updateLink1}" class="a-nada pink"> ${other.name}</a>	&nbsp; 
 									</div>	
 									
 									 <div class="col-md-12 col-sm-12 col-xs-12">	

@@ -12,5 +12,5 @@ public interface TeamService {
 	
 	public Team getTeam(int theId);	
 	
-	public Team deleteTeam(int theId);
+	public void deleteTeam(int theId);
 }

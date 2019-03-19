@@ -6,7 +6,16 @@ body{
 }
 
 .form-nosodark{
-	background-color:#7e7e7e !important;
+	background-color:#0C374D !important;
+}
+
+.form-light{	.
+   height: 35px;
+   width:100%;
+   background-color: blue; /* For browsers that do not support gradients */
+   background-image: linear-gradient(to right, #2193b0 ,#6dd5ed);										   
+}
+	background-color:#ff6666 !important;
 }
 
 .line-grey{
@@ -19,8 +28,24 @@ body{
 	font-weight: bold;
 }
 
+.a-match{
+	font-size:10px;
+	text-decoration:none;
+	color:#FFFFFF;
+	font-weight: normal;
+}
+
 .yellow{	
 	color:#f00 !important;
+}
+
+.pink{	
+	color:#FFFFFF !important;
+}
+
+.border-pink{
+	border-color:#FFFFFF !important;
+	color:#FFFFFF;
 }
 
 .border-yellow{
@@ -96,6 +121,7 @@ a:active {
 .letter-gradient {
 	font-size: 28px;
   	background: -webkit-linear-gradient(#551a8b, #f00);
+  	font-weight:bold;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

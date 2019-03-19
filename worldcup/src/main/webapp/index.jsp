@@ -107,9 +107,7 @@
 				<div class="grad1"></div>
 			</div>
 		</div>
-		<div class="container">
-		
-		
+		<div class="container">		
 		  <div class="circle">
 		    <div class="aligner">
 		      	<a href="/worldcup/team/2018" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_2018 %></a>
@@ -118,7 +116,7 @@
 		  
 		 <div class="circle1">
 		    <div class="aligner">
-		      	<a href="#" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_2022 %></a>
+		      	<a href="/worldcup/view/team" style="text-decoration:none;color:white;"><%= Constant.FIXTURE_2022 %></a>
 		    </div>
 		  </div> 
 		  

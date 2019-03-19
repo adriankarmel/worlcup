@@ -82,13 +82,12 @@ public class TeamController {
 	}		
 
 	
-	@GetMapping("/Delete")
+	@GetMapping("/delete")
 	public String deleteTeam(@RequestParam("teamId") int theId,
 									Model theModel) {										
 
-		Team theTeam = teamService.deleteTeam(theId);	
-		theModel.addAttribute("team", theTeam);
+		 teamService.deleteTeam(theId);		
 
-		return "team";										
+		return "teams";										
 	}	
 }

@@ -30,16 +30,20 @@ public class MatchController {
 	@GetMapping("/2022")
 	public String getMatch(Model theModel) {		
 		
-		/*
-		 * List<Team> theTeam = teamService.getTeams();
-		 * theModel.addAttribute("theTeam_a", theTeam);
-		 * theModel.addAttribute("theTeam_b", theTeam);
-		 */
-		
 		List<Matches> theMatch = matchService.getMatch(Constant.YEAR_2022);		
 		theModel.addAttribute("matches", theMatch);		
 		
 		return "matches";
+	}
+	
+	
+	@GetMapping("/2018")
+	public String getMatch2018(Model theModel) {	
+		
+		List<Matches> theMatch = matchService.getMatch(Constant.YEAR_2018);		
+		theModel.addAttribute("matches", theMatch);		
+		
+		return "matches-2018";
 	}
 		
 	@GetMapping("/Update")
@@ -76,6 +80,7 @@ public class MatchController {
 		
 		matchService.saveMatch(theMatch);
 		
-		return "redirect:/match/list?year=" + Constant.YEAR_2022;
+		return "redirect:/match/" + Constant.YEAR_2022;
+		
 	}	
 }

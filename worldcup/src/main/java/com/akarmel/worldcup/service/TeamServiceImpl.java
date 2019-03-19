@@ -35,7 +35,7 @@ public class TeamServiceImpl implements TeamService {
 
 	@Override
 	@Transactional
-	public Team deleteTeam(int theid) {
-		TeamDAO.deleteTeam(theid);
-	}	
+	public void deleteTeam(int theid) {
+		 TeamDAO.deleteTeam(theid);		
+	}		
 }

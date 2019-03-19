@@ -46,4 +46,25 @@ public class MatchDAOImp implements MatchDAO {
 		
 		return theMatch;			
 	}
+
+	@Override
+	public List<Matches> getTeamByMatch(int theId, String theYear) {
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		String sSql = "  FROM Matches " + 
+					  " WHERE SUBSTRING(dia, 1, 4) = " + theYear + 
+					  "   AND (team_a_id = " + theId + 
+					  "    OR  team_b_id = " + theId + ")" +
+					  " ORDER BY id";
+		
+		// create a query
+		Query<Matches> theQuery = currentSession.createQuery(sSql, Matches.class);
+		
+		// execute query and get result list
+		List<Matches> match = theQuery.getResultList();
+				
+		// return the results				
+		return match;
+	}
 }

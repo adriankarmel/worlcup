@@ -35,12 +35,12 @@
 
 		<div class="container">
 			<h2 class="text-secondary text-center letter-gradient">
-					<%= Constant.APP_TITLE %> <%= Constant.YEAR_2022 %>
+				<%= Constant.APP_TITLE %> <%= Constant.YEAR_2022 %>
 			</h2>			
 			<h2 class="text-secondary yellow">Match</h2>
 			<hr class="line-yellow">
 			<div class="form-group">
-					<form:hidden path="id" />
+				<form:hidden path="id" />
 			</div>
 			
 			<div class="form-group">

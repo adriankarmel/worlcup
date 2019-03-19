@@ -26,46 +26,77 @@
 		</style>
 		
 	</head>
-	<body class="form-dark"> 
+	<body class="form-nosodark"> 
 		<%@include file="menu.jsp"%>
 		<form:form action="search" method="POST">	
 			<div class="container">	
-				<h2 class="text-secondary text-center letter-gradient">
-					<%= Constant.APP_TITLE %> <%= Constant.YEAR_2022 %>
-				</h2>		
-				<hr class="line-yellow">
-				<h2 class="text-secondary yellow">Matches
-					<button type="button" class="btn btn-outline-dark border-yellow" onclick="location.href='/worldcup/match/new'" data-toggle="tooltip" data-placement="top" title="Add New Match">+</button>
-				</h2>
+				<div class="row">
+					<div class="col-sm-6">
+						<h2 class="text-secondary letter-gradient">
+							<%= Constant.APP_TITLE %> <%= Constant.YEAR_2022 %>
+						</h2>
+					</div>
+					<div class="col-sm-6">	
+						<h2 class="text-secondary pink">Matches
+							<button type="button" class="btn btn-outline-dark border-pink" onclick="location.href='/worldcup/match/new'" data-toggle="tooltip" data-placement="top" title="Add New Match">+</button>
+						</h2>
+					</div>	
+				</div>		
 				<hr class="line-yellow">
 				<c:forEach var="tempMatch" items="${matches}">
 					<c:url var="updateLinkM" value="/match/Update">
 						<c:param name="matchId" value="${tempMatch.id}" />
-					</c:url>							
+					</c:url>
+					<div class="row">
+						<div class="col-sm-12">
+							<span class="a-nada">${tempMatch.team_a.grupete.name}</span>
+							<span class="a-match"> (${tempMatch.dia} ${tempMatch.hora})</span>							
+						</div>		
+					</div>	
+					<div class="row">
+						<div class="col-sm-12">
+							&nbsp;			
+						</div>		
+					</div>													
 					<div class="row">
 						<div class="col-sm-6">	
-							<a href="${updateLinkM}" class="a-nada">
-								<img src="<c:url value="/resources/img/${tempMatch.team_a.flagPath}"/>" class="img-thumbnail form-dark"/>
+							<a href="${updateLinkM}">
+								<img src="<c:url value="/resources/img/${tempMatch.team_a.flagPath}"/>" class="img-thumbnail form-dark" height="42" width="42"/>
+							</a>								
+							<a href="${updateLinkM}"> 
+								<span class="a-match">${tempMatch.team_a.name}</span>								
 							</a>	
-							<a href="${updateLinkM}" class="a-nada"> ${tempMatch.team_a.name}</a>	
 						</div>
-						<div class="col-sm-6 text-right text-right text-xs-left">	
-							<a href="${updateLinkM}" class="a-nada">							
-								<img src="<c:url value="/resources/img/${tempMatch.team_b.flagPath}"/>" class="img-thumbnail form-dark"/>								
+						<div class="col-sm-6">	
+							<a href="${updateLinkM}">							
+								<img height="42" width="42" src="<c:url value="/resources/img/${tempMatch.team_b.flagPath}"/>" class="img-thumbnail form-dark"/>								
 							</a>
-							<a href="${updateLinkM}" class="a-nada">
-									 ${tempMatch.team_b.name}
+							<a href="${updateLinkM}">
+								<span class="a-match">${tempMatch.team_b.name} </span>
 							</a>						
 						</div>
-					</div>	
-					<div class="row">
-						<div class="col-sm-12 a-nada text-center text-xs-left">
-							${tempMatch.dia} - ${tempMatch.hora}
-						</div>
-					</div>	
+					</div>						
 					<hr class="line-yellow">	
 				</c:forEach>
 			</div>		
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>			
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>					
 			<div class="footer">
 	    	   <p class="text-center text-white lead">
 					<a href="http://www.akarmel.ca" target="_blank" style="text-decoration:none;color:white !important;">			

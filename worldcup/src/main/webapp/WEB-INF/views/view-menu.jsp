@@ -34,11 +34,15 @@
 		  <div class="collapse navbar-collapse" id="navbarColor02">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/worldcup/team/<%= Constant.YEAR_2022%>">Teams <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="/worldcup/view/team">Teams <span class="sr-only">(current)</span></a>
 		      </li>   
 		      <li class="nav-item">
-		        <a class="nav-link" href="/worldcup/match/<%= Constant.YEAR_2022%>">Matches</a>
-		      </li>		  
+		        <a class="nav-link" href="/worldcup/view/match">Matches</a>
+		      </li>		
+	  		  <li class="nav-item">
+		        <a class="nav-link" href="/worldcup/view/table">Table</a>
+		      </li>		
+		        
 		      <li class="nav-item">
 		        <a class="nav-link" href="/worldcup/">Home</a>
 		      </li>
