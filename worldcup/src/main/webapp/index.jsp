@@ -104,7 +104,7 @@
 	
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="grad1"></div>
+				<div class="grad1 a-nada"> <%= Constant.APP_TITLE %> <%= Constant.YEAR_2018 %>/<%= Constant.YEAR_2022 %></div>
 			</div>
 		</div>
 		<div class="container">		
