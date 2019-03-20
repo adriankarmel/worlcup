@@ -22,7 +22,6 @@ public class GroupDAOImpl implements GroupDAO {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		// save/update the customer		
 		currentSession.saveOrUpdate(theGroup);	
 	}
 

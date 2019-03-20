@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.akarmel.worldcup.entity.Team;
+import com.akarmel.worldcup.util.Constant;
 
 @Repository
 public class TeamDAOImpl implements TeamDAO {
@@ -20,8 +21,6 @@ public class TeamDAOImpl implements TeamDAO {
 	public void saveTeam(Team theTeam) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		
-		// save/update the customer		
 		currentSession.saveOrUpdate(theTeam);	
 	}
 	
@@ -61,12 +60,37 @@ public class TeamDAOImpl implements TeamDAO {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 
-		String sSql = "DELETE Team WHERE id =" + theId;
+		String sSql = "DELETE Team WHERE id = :teamId";
 		
 		Query<Team> theQuery = currentSession.createQuery(sSql, Team.class);
 		
-		// execute query and get result list
-		List<Team> teams = theQuery.getResultList();
+		theQuery.setParameter("teamId", theId);	
 		
+		theQuery.executeUpdate();		
+	}
+
+	@Override
+	public List<Team> searchTeams(String theSearchName) {
+		// get the current hibernate session
+        Session currentSession = sessionFactory.getCurrentSession();
+        
+        Query theQuery = null;
+                
+        // only search by name if theSearchName is not empty        
+        if (theSearchName != null && theSearchName.trim().length() > 0) {
+
+            // search for firstName or lastName ... case insensitive
+            theQuery = currentSession.createQuery("from Team where lower(name) like :theName and year = " + Constant.YEAR_2022, Team.class);
+            theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
+        }else {
+            // theSearchName is empty ... so just get all teams
+            theQuery = currentSession.createQuery("from Team where year = " + Constant.YEAR_2022, Team.class);            
+        }
+        
+        // execute query and get result list
+        List<Team> teams = theQuery.getResultList();
+                
+        // return the results        
+        return teams;
 	}
 }

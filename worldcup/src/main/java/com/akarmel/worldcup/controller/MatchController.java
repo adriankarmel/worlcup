@@ -83,4 +83,5 @@ public class MatchController {
 		return "redirect:/match/" + Constant.YEAR_2022;
 		
 	}	
+	
 }

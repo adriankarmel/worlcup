@@ -14,5 +14,7 @@ public interface MatchService {
 	public Matches getMatch(int theId);	
 	
 	public List<Matches> getTeamInMatches(int theId, String theYear);
+	
+	public List<Matches> searchTeamByMatches(String theSearchName);
 
 }

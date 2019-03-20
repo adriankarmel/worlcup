@@ -13,4 +13,7 @@ public interface TeamDAO {
 	public Team getTeam(int theId);
 	
 	public void deleteTeam(int theId);
+	
+	public List<Team> searchTeams(String theSearchName);
+
 }

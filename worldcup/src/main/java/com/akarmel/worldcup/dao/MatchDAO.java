@@ -14,4 +14,5 @@ public interface MatchDAO {
 
 	public List<Matches> getTeamByMatch(int theId, String theYear);
 
+	public List<Matches> searchTeamByMatches(String theSearchName);
 }

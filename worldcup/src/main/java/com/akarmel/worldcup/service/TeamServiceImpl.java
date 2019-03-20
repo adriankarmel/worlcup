@@ -37,5 +37,11 @@ public class TeamServiceImpl implements TeamService {
 	@Transactional
 	public void deleteTeam(int theid) {
 		 TeamDAO.deleteTeam(theid);		
+	}
+
+	@Override
+	@Transactional
+	public List<Team> searchTeam(String theSearchName) {
+		return TeamDAO.searchTeams(theSearchName);
 	}		
 }

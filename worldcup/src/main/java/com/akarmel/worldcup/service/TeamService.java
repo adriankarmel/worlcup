@@ -12,5 +12,7 @@ public interface TeamService {
 	
 	public Team getTeam(int theId);	
 	
-	public void deleteTeam(int theId);
+	public void deleteTeam(int theId);	
+	
+	public List<Team> searchTeam(String theSearchName);
 }

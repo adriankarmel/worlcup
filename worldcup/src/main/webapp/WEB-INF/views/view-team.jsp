@@ -29,12 +29,20 @@
 		<%@include file="view-menu.jsp"%>
 		<form:form action="search" method="POST">
 			<div class="container">
-				<div class="row">	
-				
+				<div class="row">					
 					<div class="col-sm-12">				
 						<h2 class="text-secondary text-center pink">Teams</h2>	
 					</div>
 				</div>
+				<hr class="line-yellow">
+				<div class="row">					
+					<div class="col-md-10">
+               			 <input type="text" class="form-control" name="theSearchName" placeholder="Search Team by Name" />                
+             		</div>
+               		<div class="col-md-2">
+               			 <button type="submit" value="Search" class="btn btn-primary">Search</button>
+             		</div>	             
+            	</div>		
 				<hr class="line-yellow">
 				<div class="row">
 				    <jsp:useBean id="processed" class="java.util.HashMap" />

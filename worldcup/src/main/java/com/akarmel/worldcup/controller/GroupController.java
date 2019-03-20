@@ -15,7 +15,6 @@ import com.akarmel.worldcup.service.GroupService;
 @Controller
 public class GroupController {
 	
-	// need to inject our customer service
 	@Autowired
 	private GroupService groupService;
 	
@@ -31,9 +30,7 @@ public class GroupController {
 	@PostMapping("/saveGroup")
 	public String saveTeam(@ModelAttribute("group") Group theGroup) {
 		
-		// save the customer using our service		
 		groupService.saveGroup(theGroup);
 		return "redirect:/group/list";
 	}	
-
 }

@@ -58,23 +58,19 @@
 							&nbsp;			
 						</div>		
 					</div>													
-					<div class="row">
+					<div class="row">						
 						<div class="col-sm-6">	
 							<a href="${updateLinkM}">
-								<img src="<c:url value="/resources/img/${tempMatch.team_a.flagPath}"/>" class="img-thumbnail form-dark" height="42" width="42"/>
-							</a>								
-							<a href="${updateLinkM}"> 
-								<span class="a-match">${tempMatch.team_a.name}</span>								
+								<img height="42" width="42" src="<c:url value="/resources/img/${tempMatch.team_a.flagPath}"/>" class="img-thumbnail form-dark"/>
+								<span class="a-match">${tempMatch.team_a.name} (0)</span>								
 							</a>	
-						</div>
+						</div>						
 						<div class="col-sm-6">	
 							<a href="${updateLinkM}">							
 								<img height="42" width="42" src="<c:url value="/resources/img/${tempMatch.team_b.flagPath}"/>" class="img-thumbnail form-dark"/>								
-							</a>
-							<a href="${updateLinkM}">
-								<span class="a-match">${tempMatch.team_b.name} </span>
+								<span class="a-match">${tempMatch.team_b.name} (0)</span>
 							</a>						
-						</div>
+						</div>						
 					</div>						
 					<hr class="line-yellow">	
 				</c:forEach>

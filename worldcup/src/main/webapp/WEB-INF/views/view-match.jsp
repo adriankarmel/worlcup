@@ -27,13 +27,22 @@
 	</head>
 	<body class="form-light">
 		<%@include file="view-menu.jsp"%>
-		<form:form action="search" method="POST">
+		<form:form action="searchMatches" method="POST">
 			<div class="container">
 				<div class="row">					
 					<div class="col-sm-12">				
 						<h2 class="text-secondary text-center pink">Matches</h2>	
 					</div>
 				</div>
+				<!-- <div class="row">					
+					<div class="col-md-10">
+               			 <input type="text" class="form-control" name="theSearchName" placeholder="Search Team by Name" />                
+             		</div>
+               		<div class="col-md-2">
+               			 <button type="submit" value="Search" class="btn btn-primary">Search</button>
+             		</div>	             
+            	</div>		
+		 		-->
 				<hr class="line-yellow">
 					<c:forEach var="tempMatch" items="${matches}">
 					<div class="row">
@@ -42,19 +51,15 @@
 							<span class="a-match"> (${tempMatch.dia} ${tempMatch.hora})</span>							
 						</div>		
 					</div>	
-					<div class="row">
-						<div class="col-sm-12">
-							&nbsp;			
-						</div>		
-					</div>													
+		
 					<div class="row">
 						<div class="col-sm-6">	
 							<img src="<c:url value="/resources/img/${tempMatch.team_a.flagPath}"/>" class="img-thumbnail form-dark" height="42" width="42"/>
-							<span class="a-match">${tempMatch.team_a.name}</span>								
+							<span class="a-match">${tempMatch.team_a.name} (0)</span>								
 						</div>
 						<div class="col-sm-6">	
 							<img height="42" width="42" src="<c:url value="/resources/img/${tempMatch.team_b.flagPath}"/>" class="img-thumbnail form-dark"/>								
-							<span class="a-match">${tempMatch.team_b.name} </span>
+							<span class="a-match">${tempMatch.team_b.name} (0)</span>
 						</div>
 					</div>						
 					<hr class="line-yellow">	

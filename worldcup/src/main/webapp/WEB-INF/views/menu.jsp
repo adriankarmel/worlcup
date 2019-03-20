@@ -22,6 +22,11 @@
 			$(function () {
 				  $('[data-toggle="tooltip"]').tooltip()
 			})
+			
+			$(document).ready(function() {				
+				var pathname = window.location.pathname;
+				$('.navbar-nav > li > a[href="'+pathname+'"]').parent().addClass('active');
+			})			
 		</script>
 	</head>
 		
@@ -33,7 +38,7 @@
 		
 		  <div class="collapse navbar-collapse" id="navbarColor02">
 		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item active">
+		      <li class="nav-item">
 		        <a class="nav-link" href="/worldcup/team/<%= Constant.YEAR_2022%>">Teams <span class="sr-only">(current)</span></a>
 		      </li>   
 		      <li class="nav-item">

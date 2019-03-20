@@ -27,7 +27,7 @@
 	</head>
 	<body class="form-nosodark">
 		<%@include file="menu.jsp"%>
-		<form:form action="search" method="POST">
+		
 			<div class="container">
 				<div class="row">	
 					<div class="col-sm-6">	
@@ -36,11 +36,22 @@
 						</h2>
 					</div>	
 					<div class="col-sm-6">				
-						<h2 class="text-secondary pink">Teams
+						<h2 class="text-secondary text-right pink">Teams
 							<button type="button" class="btn btn-outline-dark border-pink red-tooltip" onclick="location.href='/worldcup/team/new'" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Add New Team">+</button>
 						</h2>	
 					</div>
 				</div>
+				<hr class="line-yellow">
+				<form:form action="search" method="POST">
+					<div class="row">					
+						<div class="col-md-10">
+	               			 <input type="text" class="form-control" name="theSearchName" placeholder="Search Team by Name" />                
+	             		</div>
+	               		<div class="col-md-2">
+	               			 <button type="submit" value="Search" class="btn btn-primary">Search</button>
+	             		</div>	             
+	            	</div>	
+            	</form:form>				
 				<hr class="line-yellow">
 				<div class="row">
 				    <jsp:useBean id="processed" class="java.util.HashMap" />
@@ -104,6 +115,6 @@
 					</a>			
 				</p>
 	   		</div>
-		</form:form>
+		
 	</body>
 </html>

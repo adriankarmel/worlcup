@@ -74,20 +74,34 @@ public class TeamController {
 	}	
 	
 	@PostMapping("/saveTeam")
-	public String saveTeam(@ModelAttribute("team") Team theTeam) {
+	public String saveTeam(@ModelAttribute("team") Team theTeam, Model theModel) {
 		
 		teamService.saveTeam(theTeam);
+	
+		int TeamId = 0;
+		List<Team> theSaveTeam = teamService.getTeams(Constant.YEAR_2022, TeamId);
 		
-		return "redirect:/team/list?year=" + Constant.YEAR_2022;
+		theModel.addAttribute("teams", theSaveTeam);	
+		
+		return "teams";
 	}		
-
 	
 	@GetMapping("/delete")
 	public String deleteTeam(@RequestParam("teamId") int theId,
 									Model theModel) {										
 
-		 teamService.deleteTeam(theId);		
+	    teamService.deleteTeam(theId);		
 
 		return "teams";										
 	}	
+		
+	@PostMapping("/search")
+	public String searchTeams(@RequestParam("theSearchName") String theSearchName,
+								  Model theModel) {
+		
+        List<Team> theTeam = teamService.searchTeam(theSearchName);
+        theModel.addAttribute("teams", theTeam);
+
+        return "teams";	        
+	}
 }

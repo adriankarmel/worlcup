@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -61,4 +62,37 @@ public class ViewController {
 		
 		return "view-table";
 	}
+	
+	@PostMapping("/search")
+	public String searchTeams(@RequestParam("theSearchName") String theSearchName,
+								  Model theModel) {
+		
+	    List<Team> theTeam = teamService.searchTeam(theSearchName);
+                
+        theModel.addAttribute("teams", theTeam);
+
+        return "view-team";	        
+	}
+	
+	@PostMapping("/searchTable")
+	public String searchTeamsTable(@RequestParam("theSearchName") String theSearchName,
+								  Model theModel) {
+		
+        List<Team> theTeam = teamService.searchTeam(theSearchName);
+        theModel.addAttribute("teams", theTeam);
+
+        return "view-table";	        
+	}
+	
+	@PostMapping("/searchMatches")
+	public String searchMatchesTeams(@RequestParam("theSearchName") String theSearchName,
+								  Model theModel) {
+		
+	   List<Matches> theTeamByMatches = matchService.searchTeamByMatches(theSearchName);
+                
+        theModel.addAttribute("teams", theTeamByMatches);
+
+        return "view-table";	        
+	}
+
 }

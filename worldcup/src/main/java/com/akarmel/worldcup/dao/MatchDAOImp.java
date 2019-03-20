@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.akarmel.worldcup.entity.Matches;
+import com.akarmel.worldcup.entity.Team;
+import com.akarmel.worldcup.util.Constant;
 
 @Repository
 public class MatchDAOImp implements MatchDAO {
@@ -64,6 +66,38 @@ public class MatchDAOImp implements MatchDAO {
 		// execute query and get result list
 		List<Matches> match = theQuery.getResultList();
 				
+		// return the results				
+		return match;
+	}
+
+	@Override
+	public List<Matches> searchTeamByMatches(String theSearchName) {
+		Session currentSession = sessionFactory.getCurrentSession();
+        Query theQuery = null;
+
+		String sSql = "  FROM Matches " + 
+					  " WHERE SUBSTRING(dia, 1, 4) = " + Constant.YEAR_2022 + 
+					  " ORDER BY id";
+		
+	      // only search by name if theSearchName is not empty        
+        if (theSearchName != null && theSearchName.trim().length() > 0) {
+        		sSql = "  FROM Matches " +
+    				   " WHERE SUBSTRING(dia, 1, 4) = " + Constant.YEAR_2022 + 
+					   "   AND (lower(Matches.team_a.name) like :theName " + 
+					   "    OR  lower(Matches.team_b.name) like :theName )" +
+					   " ORDER BY id";
+        		System.out.println("sSql:" + sSql);
+            	
+            // search for firstName or lastName ... case insensitive
+            theQuery = currentSession.createQuery(sSql, Matches.class);
+            theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
+        }else {
+    		System.out.println("ssw");
+    		theQuery = currentSession.createQuery(sSql, Matches.class);            
+        }
+				
+        List<Matches> match = theQuery.getResultList();
+        
 		// return the results				
 		return match;
 	}
